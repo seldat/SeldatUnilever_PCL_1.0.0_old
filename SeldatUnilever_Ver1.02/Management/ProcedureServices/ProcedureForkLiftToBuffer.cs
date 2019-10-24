@@ -270,8 +270,8 @@ namespace SeldatMRMS
                         //TrafficRountineConstants.DetectRelease(registryRobotJourney);
                        if (Traffic.RobotIsInArea("GATE", rb.properties.pose.Position))
                         {
-                            ds.setDoorBusy(true);
-                            ds.openDoor(DoorService.DoorType.DOOR_BACK);
+                           // ds.setDoorBusy(true);
+                           // ds.openDoor(DoorService.DoorType.DOOR_BACK);
                             StateForkLift = ForkLift.FORBUF_ROBOT_WAITTING_GOTO_GATE_OPEN_DOOR;
                         }
                         break;
@@ -307,10 +307,10 @@ namespace SeldatMRMS
                         else if (RetState.DOOR_CTRL_ERROR == ret)
                         {
                             robot.ShowText("FORBUF_ROBOT_OPEN_DOOR_ERROR");
-                            StateForkLift = ForkLift.FORBUF_ROBOT_CAME_GATE_POSITION;
+                            //StateForkLift = ForkLift.FORBUF_ROBOT_CAME_GATE_POSITION;
                             Thread.Sleep(1000);
-                            ds.setDoorBusy(true);
-                            ds.openDoor(DoorService.DoorType.DOOR_BACK);
+                            //ds.setDoorBusy(true);
+                            // ds.openDoor(DoorService.DoorType.DOOR_BACK);
                         }
                         break;
                     case ForkLift.FORBUF_ROBOT_OPEN_DOOR_SUCCESS: // mo cua thang cong ,gui toa do line de robot di vao gap hang

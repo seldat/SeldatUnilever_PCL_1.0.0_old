@@ -449,6 +449,11 @@ namespace SelDatUnilever_Ver1._00.Management.TrafficManager
                     if (ExtensionService.IsInPolygon(r.GetZone(), position))
                     {
                         _type = r.Type;
+                        // trick 
+                        if(_type==TypeZone.ROAD)
+                        {
+                            return _type;
+                        }
                     }
                 }
             }
