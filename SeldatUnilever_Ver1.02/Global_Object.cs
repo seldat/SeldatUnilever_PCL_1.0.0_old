@@ -31,8 +31,8 @@ namespace SeldatMRMS
         public static bool IsEngLish = false;
 
 
-        public static string url = @"http://localhost:8081/robot/rest/";
-        //public static string url = @"http://192.168.1.35:8081/robot/rest/";
+      //  public static string url = @"http://localhost:8081/robot/rest/";
+        public static string url = @"http://192.168.1.3:8081/robot/rest/";
         // public static string url = @"http://192.168.1.22:8081/robot/rest/";
 
         public static int userLogin = -2;
