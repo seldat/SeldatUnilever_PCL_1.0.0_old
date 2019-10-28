@@ -412,15 +412,7 @@ namespace SeldatMRMS
                         break;
                     case ForkLift.FORBUF_ROBOT_WAITTING_CAME_FRONTLINE_BUFFER:
                         // kiể
-                        if (Traffic.PositionIsInArea(endPointBuffer.Position).Equals("MERZ"))
-                        {
-                            if (TrafficRountineConstants.DetetectInsideStationCheckMerz(registryRobotJourney))
-                            {
-                                break;
-                            }
-                        }
-                        if (TrafficCheckInBuffer(goalFrontLinePos, bayId))
-                            break;
+
                         try
                         {
                             if (resCmd == ResponseCommand.RESPONSE_LASER_CAME_POINT)
@@ -429,6 +421,19 @@ namespace SeldatMRMS
                                 resCmd = ResponseCommand.RESPONSE_NONE;
                                 StateForkLift = ForkLift.FORBUF_ROBOT_SEND_CMD_DROPDOWN_PALLET_BUFFER;
                             }
+                            else
+                            {
+                                if (Traffic.PositionIsInArea(endPointBuffer.Position).Equals("MERZ"))
+                                {
+                                    if (TrafficRountineConstants.DetetectInsideStationCheckMerz(registryRobotJourney))
+                                    {
+                                        break;
+                                    }
+                                }
+                                if (TrafficCheckInBuffer(goalFrontLinePos, bayId))
+                                    break;
+                            }
+                            
                         }
                         catch (System.Exception)
                         {

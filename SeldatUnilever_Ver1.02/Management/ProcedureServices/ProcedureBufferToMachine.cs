@@ -298,15 +298,7 @@ namespace SeldatMRMS
                     case BufferToMachine.BUFMAC_ROBOT_WAITTING_CAME_FRONTLINE_BUFFER:
                         // nếu chưa đến goal phải check tới vùng c1
                         // nếu goal nằm trong C1 thì không đăng ký
-                        if (!Traffic.PositionIsInArea(frontLinePose.Position).Equals("C1"))
-                        {
-                            if (TrafficRountineConstants.DetetectInsideStationCheckMerz(registryRobotJourney))
-                            {
-                                break;
-                            }
-                        }
-                        if (TrafficCheckInBuffer(goalFrontLinePos, bayId))
-                            break;
+
                         try
                         {
                             if (resCmd == ResponseCommand.RESPONSE_LASER_CAME_POINT)
@@ -317,6 +309,18 @@ namespace SeldatMRMS
 
                                 StateBufferToMachine = BufferToMachine.BUFMAC_ROBOT_SEND_CMD_PICKUP_PALLET_BUFFER;
 
+                            }
+                            else
+                            {
+                                if (!Traffic.PositionIsInArea(frontLinePose.Position).Equals("C1"))
+                                {
+                                    if (TrafficRountineConstants.DetetectInsideStationCheckMerz(registryRobotJourney))
+                                    {
+                                        break;
+                                    }
+                                }
+                                if (TrafficCheckInBuffer(goalFrontLinePos, bayId))
+                                    break;
                             }
                         }
                         catch (System.Exception)
