@@ -109,7 +109,7 @@ namespace SeldatMRMS.Management.RobotManagent
             prop2.WS = 3;
             prop2.Label = "R2";
             prop2.BatteryLevelRb = 40;
-            prop2.Url = "ws://192.168.1.4:9090";
+            prop2.Url = "ws://192.168.1.6:9090";
             prop2.ipMcuCtrl = "192.168.1.215";
             prop2.portMcuCtrl = 8081;
             prop2.DistInter = 8;
